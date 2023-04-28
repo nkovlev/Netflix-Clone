@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input:focus ~ .floating-label,
+input:valid ~ .floating-label {
+font-size: 11px;
+top: 7px;
+}
