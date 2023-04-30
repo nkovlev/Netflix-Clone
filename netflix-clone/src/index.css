@@ -7,3 +7,9 @@ input:valid ~ .floating-label {
 font-size: 11px;
 top: 7px;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
