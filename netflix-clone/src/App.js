@@ -4,6 +4,7 @@ import HomePage from './Pages/Home/HomePage';
 import SignIn from './Pages/Register/SignIn';
 import Header from './Components/Header';
 import Register from './Pages/Register/Register';
+import { useState } from 'react';
 
 const router = createBrowserRouter([
   {

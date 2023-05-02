@@ -17,7 +17,7 @@ const Register = () => {
             <div className='h-0.5 w-full bg-slate-400 opacity-20'></div>
         </Header>
         <div className="max-w-md mx-auto">
-            <div className="">
+            <div>
                 <h1 className='text-black font-semibold text-3xl mt-10'>Sign Up to start watch your favorites movies</h1>
                 <p className='text-black mt-5 mb-5 text-xl'>Enter your password and you'll be watching in no time.</p>
                 <p>Email</p>
