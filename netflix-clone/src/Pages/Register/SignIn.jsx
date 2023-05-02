@@ -37,10 +37,6 @@ const SignIn = () => {
           <h2 className='text-white text-3xl font-semibold pb-5'>Sign In</h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="sr-only">Full Name</label>
-              <input type="text" name="name" id="name" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)}  className="w-full bg-gray-800 bg-opacity-50 text-white border-b-2 border-gray-700 focus:outline-none focus:border-red-600 py-2" />
-            </div>
-            <div>
               <label htmlFor="email" className="sr-only">Email Address</label>
               <input type="email" name="email" id="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-800 bg-opacity-50 text-white border-b-2 border-gray-700 focus:outline-none focus:border-red-600 py-2" />
             </div>

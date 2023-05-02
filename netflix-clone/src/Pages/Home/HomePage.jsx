@@ -10,7 +10,6 @@ import logo from '../../images/logo.png'
 import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import Register from '../Register/Register';
 
 const handleSubmit = (values) => {
     // выполнить действия при отправке формы, например отправить данные в Firebase
@@ -31,7 +30,7 @@ return (
             </Header>
             <div className="flex flex-col justify-center items-center h-screen">
                 <h1 className='text-white font-bold text-5xl '>Unlimited movies, TV shows, and more</h1>
-                <p className='text-white text-3xl'>Watch anywhere. Cancel anytime.</p>
+                <p className='text-white text-3xl mt-4 mb-4'>Watch anywhere. Cancel anytime.</p>
                 <p className='text-white text-xl'>Ready to watch? Enter your email to create or restart your membership.
                 </p>
                 <div class="flex items-center px-6 py-6 gap-3">
@@ -57,7 +56,7 @@ return (
              handleChange(e)
              setEmail(e.target.value)
            }}
-           className={`box-border w-full py-4 pr-40 pl-5 pt-4 h-14 outline-none bg-transparent ring-2 ${errors.username && touched.username ? 'ring-red-500' : 'ring-green-600'} text-white font-semibold placeholder-gray-400 focus:placeholder-transparent focus:ring-2 focus:ring-white focus:border-transparent rounded`}
+           className={`box-border w-full py-4 pr-40 pl-5 pt-4 h-14 outline-none bg-transparent ring-2 ${errors.username && touched.username ? 'ring-red-500' : 'ring-gray-400'} text-white font-semibold placeholder-gray-400 focus:placeholder-transparent focus:ring-2 focus:ring-white focus:border-transparent rounded`}
          />
          {errors.username && touched.username && (
            <div className="text-red-500 flex">{errors.username}</div>
