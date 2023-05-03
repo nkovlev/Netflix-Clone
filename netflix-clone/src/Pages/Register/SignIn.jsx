@@ -4,26 +4,31 @@ import Header from '../../Components/Header'
 import logo from '../../images/logo.png';
 import back from '../../images/hero.jpg';
 import { Link } from 'react-router-dom';
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
-    const [loading, setLoading] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      setLoading(true);
-      setTimeout(() => {
-          setLoading(false);
-          setName('');
-          setEmail('');
-          setPassword('');
-        }, 2000); 
-    
-    };
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate('/main');
+      })
+      .catch(console.error)
+      .finally(() => {
+        setLoading(false);
+        setEmail('');
+        setPassword('');
+      });
+  };
 
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
@@ -51,7 +56,7 @@ const SignIn = () => {
                 </button>
               ) : (
                 <button type="submit" className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded">
-                  Register
+                  Sign In
                 </button>
               )}
             </div>

@@ -4,9 +4,9 @@ import HomePage from './Pages/Home/HomePage';
 import SignIn from './Pages/Register/SignIn';
 import Header from './Components/Header';
 import Register from './Pages/Register/Register';
+import Main from './Pages/Main/MainPage'
 import { PulseLoader } from "react-spinners";
 import { useEffect,useState } from 'react';
-
 
 const router = createBrowserRouter([
   {
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/main',
+        element: <Main />,
       },
       {
         path: '*',
@@ -67,7 +71,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 5000);
+    setTimeout(() => setLoading(false), 2500);
   }, []);
 
 
