@@ -23,7 +23,7 @@ return (
     <div className='h-screen bg-cover bg-center' style={{ backgroundImage: `url(${back})` }}>
         <div className="bg-black w-full h-full lg:bg-opacity-50 ">
             <Header>
-                <div className="flex justify-around pt-5 items-center">
+                <div className="container mx-auto flex justify-around items-center py-5">
                     <img src={logo} alt="logo" className='h-11' />
                     <Link className=' bg-red-600 text-white px-6 py-2 cursor-pointer rounded' to={'/signin'}>Sign In</Link>
                 </div>
