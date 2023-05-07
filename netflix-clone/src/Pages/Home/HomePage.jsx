@@ -35,7 +35,7 @@ return (
 				<p className='text-white text-3xl mt-4 mb-4'>Watch anywhere. Cancel anytime.</p>
 				<p className='text-white text-xl'>Ready to watch? Enter your email to create or restart your membership.
 				</p>
-				<div class="flex items-center px-6 py-6 gap-3">
+				<div className="flex items-center px-6 py-6 gap-3">
 					<Formik initialValues={{ username: '' }} onSubmit={handleSubmit} validationSchema={Yup.object().shape({ username: Yup.string() .required('Required') .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]/, 'Invalid email' ) })}>
 						{({ errors, touched, handleChange, isValid }) => (
 						<Form className='flex gap-3'>
@@ -97,7 +97,7 @@ return (
 							<p className='text-gray-400'>Questions? Call</p>
 							<a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
 						</div>
-						<p className='text-gray-400 pt-5'> Netflix Ukraine</p>
+						<p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
 					</div>
 				</div>
 			</Footer>

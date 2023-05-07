@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "git-secret": "^1.0.5",
     "tailwindcss": "^3.3.2"
   }
 }
