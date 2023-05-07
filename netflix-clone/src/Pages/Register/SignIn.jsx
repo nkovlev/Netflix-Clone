@@ -37,17 +37,32 @@ const SignIn = () => {
           <Link to={'/'}><img src={logo} alt="logo" className='h-11' /></Link>
         </div>
       </Header>
-      <div className="h-100 flex justify-center items-center mt-44">
-        <div className="w-full max-w-lg p-10 bg-black">
+      <div className="flex justify-center">
+        <div className="bg-black bg-opacity-70 px-16 py-16 self-center mt-2 lg:w-2/5 lg: max-w-md rounded-md w-full">
           <h2 className='text-white text-3xl font-semibold pb-5'>Sign In</h2>
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email" className="sr-only">Email Address</label>
-              <input type="email" name="email" id="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-gray-800 bg-opacity-50 text-white border-b-2 border-gray-700 focus:outline-none focus:border-red-600 py-2" />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">Password</label>
-              <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-gray-800 bg-opacity-50 text-white border-b-2 border-gray-700 focus:outline-none focus:border-red-600 py-2" />
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+          <div class="relative">
+  <input
+    type="email"
+    id="email"
+    placeholder=""
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    class="w-full border-2 border-gray-300 p-3 rounded-lg outline-none focus:border-red-500 transition-colors duration-500"
+  />
+  <label
+    htmlFor="email"
+    class="absolute top-0 left-3 px-3 py-1 text-gray-500 text-xs font-semibold transition-all duration-300"
+  >
+    Email
+  </label>
+</div>
+            <div className='relative mb-5'>
+              <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border-2 border-gray-300 p-3 rounded-lg outline-none focus:border-red-500 transition-colors duration-500" />
+              <label
+          htmlFor="password"
+          className="absolute top-0 left-0 px-3 py-1 text-gray-500 text-xs font-semibold transition-all duration-300"
+        />
             </div>
             <div>
               {loading ? (
