@@ -8,6 +8,7 @@ import Main from './Pages/Main/MainPage'
 import { ClipLoader } from "react-spinners";
 import { useEffect,useState } from 'react';
 
+
 const router = createBrowserRouter([
   {
     element: <Header />,

@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [pass, setPass] = useState('');
+    const [userName, setUserName] = useState('');
     const navigate = useNavigate();
     const handleLogin = ( userEmail ) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, userEmail, pass)
         .then(() => {
-            navigate('/signin');
+           
             })
             .catch(console.error)
     }
@@ -43,9 +44,11 @@ const Register = () => {
                 <p className='text-black mt-5 mb-5 text-xl'>Enter your password and you'll be watching in no time.</p>
                 <p>Email</p>
                 <p className='font-bold mb-4'>{userEmail}</p>
+                <p className='mb-4'>Username</p>
+                <input type="text" className='ring-1 ring-black w-full p-4 mb-4' placeholder='Enter your username' value={userName} onChange={(e) => setUserName(e.target.value)}/>
                 <input type="text" className='ring-1 ring-black w-full p-4 mb-4' placeholder='Enter your password' value={pass} onChange={(e) => setPass(e.target.value)}/>
                 <p onClick={handleResetPassword} className='text-blue-700 hover:underline cursor-pointer mb-4'>Forgot your password?</p>
-                <Link onClick={() => handleLogin(userEmail, pass)} className='flex items-center justify-center w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded'>Create account</Link>
+                <Link onClick={() => handleLogin(userEmail, pass)} className='flex items-center justify-center w-full h-12 bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded' to={`/signin?userName=${userName}`}>Create account</Link>
             </div>
         </div>
     </>
