@@ -5,8 +5,9 @@ import SignIn from './Pages/Register/SignIn';
 import Header from './Components/Header';
 import Register from './Pages/Register/Register';
 import Main from './Pages/Main/MainPage'
-import { PulseLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 import { useEffect,useState } from 'react';
+
 
 const router = createBrowserRouter([
   {
@@ -79,7 +80,7 @@ function App() {
     <div>
       {loading ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-          <PulseLoader color={"red"} loading={loading} size={30} />
+          <ClipLoader color={"red"} loading={loading} size={30} />
       </div>
       ) : (
       <RouterProvider router={router}>

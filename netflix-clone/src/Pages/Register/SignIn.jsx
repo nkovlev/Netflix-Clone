@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ClipLoader } from "react-spinners";
 import Header from '../../Components/Header'
 import logo from '../../images/logo.png';
@@ -20,6 +20,7 @@ const SignIn = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        localStorage.setItem('lastUser', email);
         navigate('/main');
       })
       .catch(console.error)
@@ -29,6 +30,13 @@ const SignIn = () => {
         setPassword('');
       });
   };
+
+  useEffect(() => {
+    const lastUser = localStorage.getItem('lastUser');
+    if (lastUser) {
+      setEmail(lastUser);
+    }
+  }, []);
 
   return (
     <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
@@ -45,17 +53,17 @@ const SignIn = () => {
   <input
     type="email"
     id="email"
-    placeholder=""
+    placeholder="Email"
     value={email}
     onChange={(e) => setEmail(e.target.value)}
     class="w-full border-2 border-gray-300 p-3 rounded-lg outline-none focus:border-red-500 transition-colors duration-500"
   />
-  <label
+  {/* <label
     htmlFor="email"
     class="absolute top-0 left-3 px-3 py-1 text-gray-500 text-xs font-semibold transition-all duration-300"
   >
     Email
-  </label>
+  </label> */}
 </div>
             <div className='relative mb-5'>
               <input type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border-2 border-gray-300 p-3 rounded-lg outline-none focus:border-red-500 transition-colors duration-500" />

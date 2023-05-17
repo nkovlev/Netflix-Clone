@@ -1,13 +1,15 @@
 import React, { useCallback } from 'react'
-import back from '../../images/hero.jpg';
 import logo from '../../images/logo.png'
 import Header from '../../Components/Header';
-import { Link } from 'react-router-dom';
-import { BsChevronDown, BsSearch, BsBell } from 'react-icons/bs'
+import { BsChevronDown } from 'react-icons/bs'
+import { AiOutlineSearch } from 'react-icons/ai'
+import { BiBell } from 'react-icons/bi'
+import { RxTriangleDown } from 'react-icons/rx'
 import { useState } from 'react';
 import MobileMenu from '../../Components/MobileMenu';
 import MainLogo from '../../images/default-blue.png'
 import AccoutMenu from '../../Components/AccoutMenu';
+import MainBillboard from '../../Components/MainBillboard'
 
 
 const MainPage = () => {
@@ -19,13 +21,19 @@ const MainPage = () => {
     setShowMobileMenu((current) => !current)
   }, [])
 
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+
+  const toggleAccountMenu = useCallback(() => {
+    setShowAccountMenu((current) => !current)
+  }, [])
+
   return (
-    <div className='bg-zinc-900 h-full overflow-x-hidden'>
+    <>
           <Header>
                 <div className="w-full fixed z-40">
-                  <div className="px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 bg-zinc-900 bg-opacity-90">
-                  <img className='h-4 lg:h-7' src={logo} alt="logo" />
-                  <div className="flex-row ml-8 gap-7 hidden lg:flex">
+                  <div className="px-4 md:px-16 py-4 flex flex-row items-center transition duration-500 bg-zinc-900 bg-opacity-90">
+                  <img className='h-4 lg:h-6' src={logo} alt="logo" />
+                  <div className="flex-row ml-7 gap-7 hidden lg:flex">
                     <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>Home</p>
                     <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>TV Shows</p>
                     <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>Movies</p>
@@ -38,24 +46,25 @@ const MainPage = () => {
                     <MobileMenu visible={showMobileMenu}/>
                   </div>
                   <div className="flex flex-row ml-auto gap-7 items-center">
-                    <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-                      <BsSearch/>
+                    <div className="text-gray-200 text-2xl hover:text-gray-300 cursor-pointer transition">
+                      <AiOutlineSearch/>
                     </div>
-                    <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-                      <BsBell/>
+                    <div className="text-gray-200 text-xl hover:text-gray-300 cursor-pointer transition">
+                      <BiBell/>
                     </div>
-                    <div className="flex flex-row items-center gap-2 cursor-pointer relative">
-                      <div className="w-6 h-6  lg:w-10 lg:h-10 rounded-md overflow-hidden">
+                    <div onClick={toggleAccountMenu} className="flex flex-row items-center gap-2 cursor-pointer relative">
+                      <div className="w-6 h-6  lg:w-8 lg:h-8 rounded-md overflow-hidden">
                         <img src={MainLogo} alt="mainLogo" />
                       </div>
-                      <BsChevronDown className='text-white transition'/>
-                      <AccoutMenu visible/>
+                      <RxTriangleDown className={`text-xl text-white fill-white transition ${showAccountMenu ? 'rotate-180' : 'rotate-0'}`} />
+                      <AccoutMenu visible={showAccountMenu}/>
                     </div>
                   </div>
                   </div>
                 </div>
           </Header>
-    </div>
+          <MainBillboard/>
+    </>
     );
 }
 

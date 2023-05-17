@@ -8,11 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [pass, setPass] = useState('');
     const navigate = useNavigate();
+    
     const handleLogin = ( userEmail ) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, userEmail, pass)
         .then(() => {
-            navigate('/signin');
+            navigate('/signin'); 
             })
             .catch(console.error)
     }
