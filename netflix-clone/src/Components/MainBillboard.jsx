@@ -4,6 +4,7 @@ import { FaPlay } from 'react-icons/fa'
 import { BiInfoCircle } from 'react-icons/bi'
 import { GoMute, GoUnmute } from 'react-icons/go'
 
+
 const MainBillboard = () => {
   const [randomMovie, setRandomMovie] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -37,7 +38,7 @@ const MainBillboard = () => {
             className="w-full h-full object-cover absolute top-0 left-0"
             src={randomMovie.videoUrl}
           ></video>
-          <div className="absolute top-[30%] md:top-[40%] pl-4 md:pl-16 w-full">
+          <div className="absolute top-[40%] md:top-[40%] pl-4 md:pl-16 w-full">
             <div>
               <p className="text-white text-6xl font-bold mb-3">{randomMovie.title}</p>
               <p className="text-white text-xl font-light max-w-xl mb-5">{randomMovie.description}</p>

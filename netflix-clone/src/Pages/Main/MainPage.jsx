@@ -10,6 +10,7 @@ import MobileMenu from '../../Components/MobileMenu';
 import MainLogo from '../../images/default-blue.png'
 import AccoutMenu from '../../Components/AccoutMenu';
 import MainBillboard from '../../Components/MainBillboard'
+import MovieList from '../../Components/MovieList';
 
 
 const MainPage = () => {
@@ -28,10 +29,10 @@ const MainPage = () => {
   }, [])
 
   return (
-    <>
+    <div className='bg-black'>
           <Header>
                 <div className="w-full fixed z-40">
-                  <div className="px-4 md:px-16 py-4 flex flex-row items-center transition duration-500 bg-transparent bg-opacity-90">
+                  <div className="px-4 md:px-16 py-4 flex flex-row items-center transition duration-500 bg-transparent">
                   <img className='h-4 lg:h-6' src={logo} alt="logo" />
                   <div className="flex-row ml-7 gap-7 hidden lg:flex">
                     <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>Home</p>
@@ -64,7 +65,8 @@ const MainPage = () => {
                 </div>
           </Header>
           <MainBillboard/>
-    </>
+          <MovieList title="Trandidg Now"/>
+    </div>
     );
 }
 
