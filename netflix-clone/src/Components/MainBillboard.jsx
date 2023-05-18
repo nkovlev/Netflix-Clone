@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import movies from '../movies.json';
 import { FaPlay } from 'react-icons/fa'
 import { BiInfoCircle } from 'react-icons/bi'
@@ -8,6 +8,7 @@ import { GoMute, GoUnmute } from 'react-icons/go'
 const MainBillboard = () => {
   const [randomMovie, setRandomMovie] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
 
   const fetchRandomMovie = async () => {
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -27,11 +28,18 @@ const MainBillboard = () => {
     setIsMuted(!isMuted);
   };
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      videoRef.current.requestFullscreen();
+    }
+  };
+
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-full h-screen">
       {randomMovie && (
         <>
           <video
+            ref={videoRef}
             autoPlay
             muted={isMuted}
             loop
@@ -45,11 +53,11 @@ const MainBillboard = () => {
             </div>
             <div className="flex justify-between items-center">
               <div className="flex gap-3">
-                <button className='bg-white flex items-center text-xl px-7 py-2 gap-2 rounded'><FaPlay className='text-xl'/> Play</button>
-                <button className='bg-gray-500 bg-opacity-40 text-white text-xl font-sans gap-3 px-6 py-2 flex items-center rounded'><BiInfoCircle className='fill-white text-3xl font-bold'/>More Info</button>
+                <button className='bg-white flex items-center text-xl px-10 py-3 gap-3 rounded hover:bg-opacity-60'><FaPlay className='text-xl' onClick={handleVideoClick}/> Play</button>
+                <button className='bg-gray-500 bg-opacity-50 text-white text-2xl font-sans gap-3 px-7 py-2 flex items-center rounded hover:bg-opacity-20'><BiInfoCircle className='fill-white text-3xl font-bold'/>More Info</button>
               </div>
                 <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full border-white border-2 flex justify-center items-center mr-3" onClick={handleMuteToggle}>
+                  <div className="h-12 w-12 rounded-full border-white border-2 flex justify-center items-center mr-3 hover:bg-white hover:bg-opacity-30" onClick={handleMuteToggle}>
                     {isMuted ? <GoMute className='fill-white' /> : <GoUnmute className='fill-white' />}
                   </div>
                   <span className='h-12 w-1 bg-slate-500'></span>
