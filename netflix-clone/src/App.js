@@ -80,7 +80,7 @@ function App() {
     <div>
       {loading ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-          <ClipLoader color={"red"} loading={loading} size={30} />
+          <ClipLoader color={"red"} loading={loading} size={50} />
       </div>
       ) : (
       <RouterProvider router={router}>
