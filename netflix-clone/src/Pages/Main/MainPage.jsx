@@ -11,11 +11,11 @@ import MainLogo from '../../images/default-blue.png'
 import AccoutMenu from '../../Components/AccoutMenu';
 import MainBillboard from '../../Components/MainBillboard'
 import MovieList from '../../Components/MovieList';
+import { MainNavigation } from './MainNavigation';
 
 
 const MainPage = () => {
 
-  // const [selectedItem, setSelectedItem] = useState('Home');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const toggleMobileMenu = useCallback(() => {
@@ -28,19 +28,18 @@ const MainPage = () => {
     setShowAccountMenu((current) => !current)
   }, [])
 
+const [selectedItem, setSelectedItem] = useState('Home');
+
   return (
     <div className='bg-black'>
           <Header>
-                <div className="w-full fixed z-40">
+                <div className="w-full fixed z-10">
                   <div className="px-4 md:px-16 py-4 flex flex-row items-center transition duration-500 bg-transparent">
                   <img className='h-4 lg:h-6' src={logo} alt="logo" />
-                  <div className="flex-row ml-7 gap-7 hidden lg:flex">
-                    <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>Home</p>
-                    <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>TV Shows</p>
-                    <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>Movies</p>
-                    <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>New & Popular</p>
-                    <p className='text-white cursor-pointer hover:text-fray-300 transition font-light'>My List</p>
-                  </div>
+                  <MainNavigation 
+                    selectedItem={selectedItem}
+                    setSelectedItem={setSelectedItem}
+                  />
                   <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative ">
                     <p className='text-white text-sm'>Browse</p>
                     <BsChevronDown className='text-white transition'/>
