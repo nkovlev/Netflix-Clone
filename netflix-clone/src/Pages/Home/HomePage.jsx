@@ -86,16 +86,36 @@ return (
 			<Questions />
 			<div className='h-3 w-full bg-slate-400 opacity-20 mt-20'></div>
 			<Footer>
-				<div className="w-full">
-					<div className="pt-10 pb-10 pl-20">
-						<div className="flex gap-1">
-							<p className='text-gray-400'>Questions? Call</p>
-							<a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
-						</div>
-						<p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
-					</div>
-				</div>
-			</Footer>
+        <div className="w-full">
+          <div className="pt-10 pb-10 max-w-max pl-24">
+            <div className="flex gap-1">
+              <p className='text-gray-400'>Questions? Call</p>
+              <a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
+            </div>
+            <div className="grid grid-rows-5 grid-cols-3 gap-2 pt-7 gap-x-60">
+              <a href=" " className='text-gray-400 underline'>FAQ</a>
+              <a href=" " className='text-gray-400 underline'>Media Center</a>
+              <a href=" " className='text-gray-400 underline'>Ways to Watch</a>
+              <a href=" " className='text-gray-400 underline' >Cookie Preferences</a>
+              <a href=" " className='text-gray-400 underline'>Spped Test</a>
+
+              <a href=" " className='text-gray-400 underline'>Help Center</a>
+              <a href=" " className='text-gray-400 underline'>Investor Relations</a>
+              <a href=" " className='text-gray-400 underline'>Terms of Use</a>
+              <a href=" " className='text-gray-400 underline'>Corporate Information</a>
+              <a href=" " className='text-gray-400 underline'>Legal Notices</a>
+
+              <a href=" " className='text-gray-400 underline'>Account</a>
+              <a href=" " className='text-gray-400 underline'>Jobs</a>
+              <a href=" " className='text-gray-400 underline'>Privacy</a>
+              <a href=" " className='text-gray-400 underline'>Contact Us</a>
+              <a href=" " className='text-gray-400 underline'>Only on Netflix</a>
+              
+            </div>
+            <p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
+          </div>
+        </div>
+      </Footer>
 		</div>
 	</div>
 </>
