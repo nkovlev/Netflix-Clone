@@ -1,91 +1,51 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './Pages/Home/HomePage';
 import SignIn from './Pages/Register/SignIn';
 import Header from './Components/Header';
 import Register from './Pages/Register/Register';
-import Main from './Pages/Main/MainPage'
-import { ClipLoader } from "react-spinners";
-import { useEffect,useState } from 'react';
-
-
-const router = createBrowserRouter([
-  {
-    element: <Header />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage />,
-      },
-      {
-        path: '/signin',
-        element: <SignIn />,
-      },
-      {
-        path: '/register',
-        element: <Register />,
-      },
-      {
-        path: '/main',
-        element: <Main />,
-      },
-      {
-        path: '*',
-        element: <h1>Error</h1>,
-      },
-    ],
-  },
-  {
-    element: <SignIn />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage />,
-      },
-      {
-        path: '*',
-        element: <h1>Error</h1>,
-      },
-    ],
-  },
-  {
-    element: <Register />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage/>,
-      },
-      {
-        path: '/signin',
-        element: <SignIn/>,
-      },
-      {
-        path: '*',
-        element: <h1>Error</h1>,
-      },
-    ],
-  },
-]);
+import Main from './Pages/Main/MainPage';
+import { ClipLoader } from 'react-spinners';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 function App() {
-
   const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2500);
-  }, []);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
 
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setAuthenticated(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div>
       {loading ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-          <ClipLoader color={"red"} loading={loading} size={50} />
-      </div>
+          <ClipLoader color="red" loading={loading} size={50} />
+        </div>
       ) : (
-      <RouterProvider router={router}>
-        <Outlet />
-      </RouterProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/signin" element={<SignIn/>}/>
+            <Route path="/register" element={<Register/>}/>
+            {authenticated ? (
+              <Route path="/main" element={<Main />} />
+            ) : (
+              <Route path="/main" element={<Navigate to="/" replace />} />
+            )}
+            <Route path="*" element={<h1>Error</h1>} />
+          </Routes>
+        </Router>
       )}
     </div>
   );
