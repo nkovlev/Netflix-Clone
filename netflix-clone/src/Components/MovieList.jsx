@@ -108,6 +108,7 @@ const MovieList = ({ title }) => {
       <div className="relative">
         <Swiper
           slidesPerView={5}
+          slidesPerGroup={5}
           spaceBetween={10}
           navigation={true}
           loop={true}
@@ -117,7 +118,7 @@ const MovieList = ({ title }) => {
           {movies.map((movie, index) => (
             <SwiperSlide
               key={index}
-              className={`group col-span relative transition-opacity w-60 pt-10 pb-5 ${
+              className={`group col-span relative transition-opacity w-60 mt-10 mb-40 ${
                 index === activeIndex ? "opacity-100" : "opacity-90"
               }`}
               onMouseEnter={() => handleMouseEnter(index)}
@@ -174,7 +175,7 @@ const MovieList = ({ title }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute top-2/4 flex items-center justify-between w-full px-4 z-10">
+        <div className="absolute top-28 flex items-center justify-between w-full px-4 z-10">
           <div
             className="swiper-button-prev text-white cursor-pointer transition duration-300 hover:text-gray-300"
             onClick={prevSlide}
