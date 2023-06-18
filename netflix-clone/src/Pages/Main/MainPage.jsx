@@ -14,6 +14,7 @@ import MovieList from '../../Components/MovieList';
 import { MainNavigation } from './MainNavigation';
 
 
+
 const MainPage = () => {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);

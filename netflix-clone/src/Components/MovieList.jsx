@@ -4,6 +4,7 @@ import "swiper/swiper.min.css";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
 import { BsPlayFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import axios from "axios";
+import { AiOutlinePlus, AiOutlineLike } from 'react-icons/ai'
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -14,6 +15,9 @@ const MovieList = ({ title }) => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const swiperRef = useRef(null);
+  const [showAddToList, setShowAddToList] = useState(false);
+  const [showLike, setShowLike] = useState(false);
+  const [myList, setMyList] = useState([]);
 
   const fetchMovies = async () => {
     try {
@@ -100,6 +104,12 @@ const MovieList = ({ title }) => {
     ));
   };
 
+  const handleAddToList = (movie) => {
+    if (!myList.some((item) => item.id === movie.id)) {
+      setMyList((prevList) => [...prevList, movie]);
+    }
+  };
+
   return (
     <div className="px-4 mt-4 space-y-8 pb-4">
       <h2 className="text-white text-md md:text-xl lg:text-2xl font-semibold">
@@ -155,6 +165,28 @@ const MovieList = ({ title }) => {
                         onClick={handleVideoClick}
                       >
                         <BsPlayFill size={30} />
+                      </div>
+                      <AiOutlinePlus className='fill-white w-10 h-10 bg-zinc-700 rounded-full border-2' 
+                      onMouseEnter={() => setShowAddToList(true)}
+                      onMouseLeave={() => setShowAddToList(false)}
+                      onClick={() => handleAddToList(movie)}/>
+                      {showAddToList && (
+                      <div className="absolute mb-24 left-36 transform px-3 py-2 bg-zinc-200 rounded-md text-black text-xl font-semibold whitespace-nowrap">
+                        {myList.some((item) => item.id === movie.id) ? 'Added' : 'Add to My List'}
+                      </div>
+                      )}
+                      <div className="w-10 h-10 bg-zinc-700 rounded-full border-2 flex items-center justify-center">
+                      <AiOutlineLike className='fill-white w-5 h-5'
+                      
+                        onMouseEnter={() => setShowLike(true)}
+                        onMouseLeave={() => setShowLike(false)}
+                      />
+                      {showLike && (     
+                          <div className="absolute mb-24 left-46 transform px-3 py-2 bg-zinc-200 rounded-md text-black text-xl font-semibold whitespace: nowrap">
+                            I like this
+                          </div>
+                      )}
+                      
                       </div>
                     </div>
                     <p className="text-white">{movie.title}</p>
