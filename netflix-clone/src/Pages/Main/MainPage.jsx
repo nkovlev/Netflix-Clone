@@ -16,6 +16,7 @@ import MyList from './MyList';
 
 
 
+
 const MainPage = () => {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -31,6 +32,10 @@ const MainPage = () => {
   }, [])
 
 const [selectedItem, setSelectedItem] = useState('Home');
+const [myList, setMyList] = useState([]);
+const addToMyList = (movie) => {
+  setMyList((prevList) => [...prevList, movie]);
+};
 
   return (
     <div className='bg-black'>
@@ -66,11 +71,11 @@ const [selectedItem, setSelectedItem] = useState('Home');
                 </div>
           </Header>
           {selectedItem === 'My List' ? (
-        <MyList />
+        <MyList myList={myList}/>
       ) : (
         <>
           <MainBillboard />
-          <MovieList title="Trandidg Now" />
+          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} />
         </>
       )}
     </div>

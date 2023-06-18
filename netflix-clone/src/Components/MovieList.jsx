@@ -8,7 +8,7 @@ import { AiOutlinePlus, AiOutlineLike } from 'react-icons/ai'
 
 SwiperCore.use([Navigation, Pagination]);
 
-const MovieList = ({ title }) => {
+const MovieList = ({ title, myList, addToMyList }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [playVideo, setPlayVideo] = useState(false);
   const videoRef = useRef(null);
@@ -17,7 +17,6 @@ const MovieList = ({ title }) => {
   const swiperRef = useRef(null);
   const [showAddToList, setShowAddToList] = useState(false);
   const [showLike, setShowLike] = useState(false);
-  const [myList, setMyList] = useState([]);
 
   const fetchMovies = async () => {
     try {
@@ -104,10 +103,8 @@ const MovieList = ({ title }) => {
     ));
   };
 
-  const handleAddToList = (movie) => {
-    if (!myList.some((item) => item.id === movie.id)) {
-      setMyList((prevList) => [...prevList, movie]);
-    }
+  const handleAddToMyList = (movie) => {
+    addToMyList(movie);
   };
 
   return (
@@ -169,7 +166,7 @@ const MovieList = ({ title }) => {
                       <AiOutlinePlus className='fill-white w-10 h-10 bg-zinc-700 rounded-full border-2' 
                       onMouseEnter={() => setShowAddToList(true)}
                       onMouseLeave={() => setShowAddToList(false)}
-                      onClick={() => handleAddToList(movie)}/>
+                      onClick={() => handleAddToMyList(movie)}/>
                       {showAddToList && (
                       <div className="absolute mb-24 left-36 transform px-3 py-2 bg-zinc-200 rounded-md text-black text-xl font-semibold whitespace-nowrap">
                         {myList.some((item) => item.id === movie.id) ? 'Added' : 'Add to My List'}

@@ -1,9 +1,14 @@
 import React from 'react'
 
-const MyList = () => {
+const MyList = ({ myList }) => {
   return (
     <div className='bg-black w-screen h-screen'>
-        <p>hi</p>
+        <h2>My List</h2>
+      {myList.map((movie) => (
+        <div key={movie.id}>
+          <h3 className='text-white'>{movie.title}</h3>
+        </div>
+      ))}
     </div>
   )
 }
