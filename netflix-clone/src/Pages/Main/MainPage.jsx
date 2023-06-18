@@ -12,6 +12,7 @@ import AccoutMenu from '../../Components/AccoutMenu';
 import MainBillboard from '../../Components/MainBillboard'
 import MovieList from '../../Components/MovieList';
 import { MainNavigation } from './MainNavigation';
+import MyList from './MyList';
 
 
 
@@ -64,8 +65,14 @@ const [selectedItem, setSelectedItem] = useState('Home');
                   </div>
                 </div>
           </Header>
-          <MainBillboard/>
-          <MovieList title="Trandidg Now"/>
+          {selectedItem === 'My List' ? (
+        <MyList />
+      ) : (
+        <>
+          <MainBillboard />
+          <MovieList title="Trandidg Now" />
+        </>
+      )}
     </div>
     );
 }
