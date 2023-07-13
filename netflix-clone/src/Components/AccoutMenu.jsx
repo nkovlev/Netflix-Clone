@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import AccountLogo from '../images/default-blue.png';
-import { BsPerson } from 'react-icons/bs'
+import { FaPencilAlt } from 'react-icons/fa'
 
 const AccountMenu = ({ visible }) => {
 
@@ -10,7 +10,7 @@ const navigate = useNavigate();
 const handleSignOut = async () => {
     try {
         await auth.signOut();
-        navigate('/');
+        navigate('/accleave');
     } catch (error) {
         console.error(error);
     }
@@ -28,8 +28,8 @@ return (
                 <p className="text-white text-sm group-hover/item:underline">Username</p>
             </div>
             <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
-                <BsPerson className='fill-white w-8 text-xl text-gray-400'/>
-                <p className="text-white text-sm group-hover/item:underline">Account</p>
+                <FaPencilAlt className='fill-white w-8 text-xl text-gray-400'/>
+                <p className="text-white text-sm group-hover/item:underline" onClick={()=>navigate('/accinfo')}>Manage Profile</p>
             </div>
             <hr className="bg-gray-600 border-0 h-px" />
             <div className=" text-center text-white text-sm hover:underline" onClick={handleSignOut}>

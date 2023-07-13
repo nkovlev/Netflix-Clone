@@ -5,8 +5,10 @@ import SignIn from './Pages/Register/SignIn';
 import Header from './Components/Header';
 import Register from './Pages/Register/Register';
 import Main from './Pages/Main/MainPage';
+import AccountInfo from './Components/AccountInfo';
 import { ClipLoader } from 'react-spinners';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import AccountLeave from './Components/AccountLeave';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -38,6 +40,8 @@ function App() {
             <Route path="/" element={<HomePage/>}/>
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/accinfo" element={<AccountInfo/>}/>
+            <Route path="/accleave" element={<AccountLeave/>}/>
             {authenticated ? (
               <Route path="/main" element={<Main />} />
             ) : (

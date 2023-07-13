@@ -17,8 +17,8 @@ const HomePage = () => {
 const [email, setEmail] = useState('');
 return (
 <>
-<div className='h-screen bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${back})` }}>
-  <div className="bg-black w-full h-full lg:bg-opacity-50 ">
+<div className=' w-screen h-screen bg-cover bg-center' style={{ backgroundImage: `url(${back})` }}>
+  <div className="bg-black w-full h-full bg-opacity-50 ">
     <Header>
       <div className="flex justify-around pt-5 items-center">
         <img src={logo} alt="logo" className='h-11' />
