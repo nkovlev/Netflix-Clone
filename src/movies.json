@@ -6,7 +6,12 @@
       "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Big.Buck.Bunny.-.Opening.Screen.png",
       "genre": "Comedy",
       "duration": "10 minutes",
-      "min_year": "8"
+      "min_year": "8",
+      "match": "98",
+      "year": "2008",
+      "quality": "HD",
+      "cast": ["Cas Jansen","Bassam Kurdali","Marlon Brando","Denzel Washington","Clark Gable","Sidney Poitier"],
+      "creators": ["Vivien Leigh","Marilyn Monroe","Laurence Olivier"]
    },
    {
       "title": "Elephant's Dream",
@@ -15,6 +20,11 @@
       "thumbnailUrl": "https://download.blender.org/ED/cover.jpg",
       "genre": "Sci-Fi",
       "duration": "15 minutes",
-      "min_year": "6"
+      "min_year": "6",
+      "match": "98",
+      "year": "2008",
+      "quality": "HD",
+      "cast": ["Ingrid Bergman","Bette Davis","Leonardo DiCaprio","Denzel Washington","Audrey Hepburn","Kate Winslet"],
+      "creators": ["James Stewart","Steve McQueen","Diane Keaton"]
    }
 ]

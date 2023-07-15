@@ -44,7 +44,7 @@ const SignIn = () => {
   }, []);
 
   return (
-    <div className="h-full bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
+    <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
       <Header>
         <div className="pt-10 pl-10">
           <Link to={'/'}><img src={logo} alt="logo" className='h-11' /></Link>
