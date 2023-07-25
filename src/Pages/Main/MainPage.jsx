@@ -106,7 +106,8 @@ const MainPage = () => {
       ) : (
         <>
           <MainBillboard />
-          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} />
+          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList}/>
+          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList}/>
         </>
       )}
     </div>

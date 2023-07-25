@@ -5,7 +5,7 @@ const MyList = ({ myList }) => {
     <div className='bg-black w-screen h-screen'>
         <div className="pt-20 pl-16">
         <h2 className='text-white text-3xl mb-24'>My List</h2>
-        <div className="flex overflow-x-auto">
+        <div className="grid grid-cols-4 gap-2">
         {myList.map((movie) => (
           <div
             key={movie.id}
