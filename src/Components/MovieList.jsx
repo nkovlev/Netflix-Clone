@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "swiper/swiper.min.css";
-import SwiperCore, { Navigation, Pagination } from "swiper/core";
 import axios from "axios";
-
 import MovieCard from "./MovieCard";
 
-SwiperCore.use([Navigation, Pagination]);
-
-const MovieList = ({ title,myList, addToMyList }) => {
+const MovieList = ({ title, myList, addToMyList, startIndex, endIndex }) => {
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
@@ -26,14 +21,16 @@ const MovieList = ({ title,myList, addToMyList }) => {
     fetchMovies();
   }, []);
 
+  const visibleMovies = movies.slice(startIndex, endIndex );
+
   return (
     <div className="px-4 space-y-8 md:px-12">
-      <div>
+      <div className="">
         <p className="text-white text-md md:text-xl font-semibold mb-4">{title}</p>
         <div className="flex space-x-3">
-          {movies.map((movie) => (
+          {visibleMovies.map((movie) => (
             <div key={movie.id} style={{ flex: "0 0 auto" }}>
-              <MovieCard data={movie} myList={myList} addToMyList={addToMyList}/>
+              <MovieCard data={movie} myList={myList} addToMyList={addToMyList} />
             </div>
           ))}
         </div>

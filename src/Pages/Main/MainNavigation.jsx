@@ -7,20 +7,21 @@ export const MainNavigation = ({ selectedItem, setSelectedItem, isProcessing }) 
 const [isLoading, setIsLoading] = useState(false);
 
 const handleItemClick = (item) => {
-    setIsLoading(true);
-    setSelectedItem(item);
-    setTimeout(() => {
-    setIsLoading(false);
-    }, 1500);
+setIsLoading(true);
+setSelectedItem(item);
+setTimeout(() => {
+setIsLoading(false);
+}, 1500);
 };
 
 return (
-    <div>
-        <ul className="flex-row ml-7 gap-7 hidden lg:flex">
-            {items.map((item, index) => (
-        <li key={index} className={`text-white cursor-pointer hover:text-gray-300 transition ${ item===selectedItem ? 'font-semibold' : 'font-light' }`} onClick={()=> handleItemClick(item)}
-        >
-        {item}
+<div>
+    <ul className="flex-row ml-7 gap-7 hidden lg:flex">
+        {items.map((item, index) => (
+        <li key={index} className={`text-white cursor-pointer hover:text-gray-300 transition ${ item===selectedItem
+            ? 'font-semibold' : 'font-light' }`} onClick={()=> handleItemClick(item)}
+            >
+            {item}
         </li>
         ))}
     </ul>
@@ -29,6 +30,6 @@ return (
         <ClipLoader color="red" loading={true} size={50} />
     </div>
     )}
-    </div>
-    );
+</div>
+);
 };
