@@ -26,7 +26,7 @@ const AccountInfo = () => {
   };
 
   return (
-    <div className='w-screen h-full bg-black flex justify-center'>
+    <div className='w-screen h-screen bg-black flex justify-center'>
       {loading ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <ClipLoader color="red" loading={loading} size={50} />

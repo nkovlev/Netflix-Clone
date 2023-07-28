@@ -12,6 +12,7 @@ import MainBillboard from '../../Components/MainBillboard';
 import MovieList from '../../Components/MovieList';
 import { MainNavigation } from './MainNavigation';
 import MyList from './MyList';
+import Footer from '../../Components/Footer';
 
 const MainPage = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -55,7 +56,7 @@ const MainPage = () => {
   }, [accountMenuTimeout]);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black overflow-hidden">
       <Header>
         <div className="w-full fixed z-10">
           <div className="px-4 md:px-16 py-4 flex flex-row items-center transition duration-500 bg-transparent">
@@ -108,6 +109,37 @@ const MainPage = () => {
           <MainBillboard />
           <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} startIndex={0} endIndex={4}/>
           <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} startIndex={5} endIndex={9}/>
+          <Footer>
+      <div className="w-full">
+        <div className="pt-10 pb-10 max-w-max pl-24">
+          <div className="flex gap-1">
+            <p className='text-gray-400'>Questions? Call</p>
+            <a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
+          </div>
+          <div className="grid grid-rows-5 grid-cols-3 gap-2 pt-7 gap-x-60">
+            <a href=" " className='text-gray-400 underline'>FAQ</a>
+            <a href=" " className='text-gray-400 underline'>Media Center</a>
+            <a href=" " className='text-gray-400 underline'>Ways to Watch</a>
+            <a href=" " className='text-gray-400 underline'>Cookie Preferences</a>
+            <a href=" " className='text-gray-400 underline'>Spped Test</a>
+
+            <a href=" " className='text-gray-400 underline'>Help Center</a>
+            <a href=" " className='text-gray-400 underline'>Investor Relations</a>
+            <a href=" " className='text-gray-400 underline'>Terms of Use</a>
+            <a href=" " className='text-gray-400 underline'>Corporate Information</a>
+            <a href=" " className='text-gray-400 underline'>Legal Notices</a>
+
+            <a href=" " className='text-gray-400 underline'>Account</a>
+            <a href=" " className='text-gray-400 underline'>Jobs</a>
+            <a href=" " className='text-gray-400 underline'>Privacy</a>
+            <a href=" " className='text-gray-400 underline'>Contact Us</a>
+            <a href=" " className='text-gray-400 underline'>Only on Netflix</a>
+
+          </div>
+          <p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
+        </div>
+      </div>
+    </Footer>
         </>
       )}
     </div>

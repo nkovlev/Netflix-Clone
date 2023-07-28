@@ -28,7 +28,7 @@ return (
         </div>
         </Header>
         <div className="w-full flex items-center justify-center">
-            <div className="w-1/3 h-96 bg-white">
+            <div className="w-1/3 h-96 bg-white flex flex-col items-center">
                 <h1 className='text-3xl font-semibold ml-10 mt-10'>Leaving So Soon?</h1>
                 <p className=' ml-10 mt-10 max-w-sm'>Just so you know, you don’t always need to sign out of Netflix. It’s only necessary if you’re on a shared or public computer.</p>         
                 <p className='ml-10 mt-10 max-w-xs'>You’ll be redirected to Netflix.com in 30 seconds.</p>

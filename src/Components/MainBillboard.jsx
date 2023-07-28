@@ -55,7 +55,7 @@ const MainBillboard = () => {
   };
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-screen h-screen">
       {randomMovie && (
         <>
           <div className={`w-screen h-full object-cover absolute top-0 left-0 ${showModal ? "hidden" : ""}`}>

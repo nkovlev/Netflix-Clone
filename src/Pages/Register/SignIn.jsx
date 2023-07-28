@@ -79,14 +79,14 @@ const SignIn = () => {
                 <p className='text-white hover:underline' onClick={() => navigate('/register')}>Sign up now</p>
               </div>
               <p className='text-gray-400 font-light text-sm '>This page is protected by Google reCAPTCHA to ensure you're not a bot.
-                <span className={`text-${isLearnMoreClicked ? 'black' : 'blue-500'} hover:underline`} 
+                <span className={`${isLearnMoreClicked ? 'text-black' : 'text-blue-500'} hover:underline`} 
                 onClick={handleLearnMoreClick}> Learn more.</span>
               </p>
-              <p className={`font-light text-sm text-${isLearnMoreClicked ? 'gray-400' : 'black'}`}>
+              <p className={`font-light text-sm ${isLearnMoreClicked ? 'text-gray-400' : 'text-black'}`}>
                 The information collected by Google reCAPTCHA is subject to the Google 
-                <a href="https://policies.google.com/privacy" target='blank' className={`text-${isLearnMoreClicked ? 'blue-500' : 'black'} hover:underline`}> Privacy Policy </a>
+                <a href="https://policies.google.com/privacy" target='blank' className={`${isLearnMoreClicked ? 'text-blue-500' : 'text-black'} hover:underline`}> Privacy Policy </a>
                   and  
-                <a href="https://policies.google.com/terms" target='blank' className={`text-${isLearnMoreClicked ? 'blue-500' : 'black'} hover:underline`}> Terms of Service
+                <a href="https://policies.google.com/terms" target='blank' className={`${isLearnMoreClicked ? 'text-blue-500' : 'text-black'} hover:underline`}> Terms of Service
                 </a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).
               </p>
             </form>
