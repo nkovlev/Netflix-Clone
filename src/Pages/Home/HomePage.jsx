@@ -46,7 +46,7 @@ return (
       })}
     >
       {({ errors, touched, handleChange, isValid }) => (
-        <Form className="flex gap-3 xs:flex-col">
+        <Form className="flex gap-3 xs:flex-col lg:flex-row">
           <div className="relative mx-auto w-full max-w-md">
             <Field
               placeholder="Enter your Email"
