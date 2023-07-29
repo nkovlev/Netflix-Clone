@@ -43,9 +43,9 @@ const Questions = () => {
       ];
     
       return (
-        <div className="container mx-auto mt-16">
-          <h1 className="text-5xl font-bold mb-8 text-white text-center">Frequently Asked Questions</h1>
-          <div className="space-y-4">
+        <div className="mx-auto mt-16">
+          <h1 className="text-5xl xs:text-xl font-bold mb-8 text-white text-center">Frequently Asked Questions</h1>
+          <div className="space-y-4 mx-10">
             {questions.map((question) => (
               <div key={question.id} className="bg-slate-800 p-6 shadow">
                 <div
@@ -54,11 +54,11 @@ const Questions = () => {
                     setActiveQuestion(activeQuestion === question.id ? null : question.id)
                   }
                 >
-                  <h2 className="text-2xl text-white font-normal">{question.question}</h2>
+                  <h2 className="text-2xl xs:text-xl text-white font-normal">{question.question}</h2>
                   <span className="text-3xl">{activeQuestion === question.id ? '-' : '+'}</span>
                 </div>
                 {activeQuestion === question.id && (
-                  <div className="mt-4 text-2xl text-white font-normal">{question.answer}</div>
+                  <div className="mt-4 text-2xl xs:text-xl text-white font-normal">{question.answer}</div>
                 )}
               </div>
             ))}

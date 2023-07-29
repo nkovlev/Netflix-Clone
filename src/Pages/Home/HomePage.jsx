@@ -21,14 +21,21 @@ return (
   <div className="bg-black w-full h-full bg-opacity-50">
     <Header>
       <div className="flex justify-around pt-5 items-center">
-        <img src={logo} alt="logo" className='h-11' />
-        <Link className=' bg-red-600 text-white px-6 py-2 cursor-pointer rounded font-semibold' to={'/signin'}>Sign In</Link>
+        <img src={logo} alt="logo" className=' xs:h-6 sm:h-8 lg:h-11' />
+        <Link className=' bg-red-600 text-white xs:px-4 xs:py-1 sm:px-6 sm:py-2 lg:px-6 lg:py-2 cursor-pointer rounded font-semibold' to={'/signin'}>Sign In</Link>
       </div>
     </Header>
 <div className="flex flex-col justify-center items-center h-screen">
-  <h1 className="text-white font-bold text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">Unlimited movies, TV shows, and more</h1>
-  <p className="text-white text-3xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl">Watch anywhere. Cancel anytime.</p>
-  <p className="text-white text-xl lg:text-lg xl:text-xl 2xl:text-2xl">Ready to watch? Enter your email to create or restart your membership.</p>
+<h1 className="text-white font-bold text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl sm:text-3xl xs:text-3xl xs:max-w-md xs:text-center sm:max-w-full ">
+  Unlimited movies, TV shows, and more
+</h1>
+<p className="text-white text-3xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl xs:text-xl mt-3 mb-3">
+  Watch anywhere. Cancel anytime.
+</p>
+<p className="text-white text-xl lg:text-lg xl:text-xl 2xl:text-2xl xs:text-lg xs:max-w-md xs:text-center sm:max-w-full">
+  Ready to watch? Enter your email to create or restart your membership.
+</p>
+
   <div className="flex items-center px-6 py-6 gap-3">
     <Formik
       initialValues={{ useremail: '' }}
@@ -39,7 +46,7 @@ return (
       })}
     >
       {({ errors, touched, handleChange, isValid }) => (
-        <Form className="flex gap-3">
+        <Form className="flex gap-3 xs:flex-col">
           <div className="relative mx-auto w-full max-w-md">
             <Field
               placeholder="Enter your Email"
@@ -73,40 +80,40 @@ return (
   </div>
   <div className="bg-black w-100">
     <div className='h-3 w-full bg-slate-400 opacity-20'></div>
-    <div className="flex justify-around">
-      <div className="my-60">
-        <h1 className='text-white font-bold 2xl:text-5xl lg:text-3xl pb-3'>Enjoy on your TV</h1>
-        <p className='text-white 2xl:text-2xl lg:text-xl'>Watch on Smart TVs, Playstation, Xbox,<br></br> Chromecast, Apple TV, Blu-ray players, and more.</p>
+    <div className="flex justify-around items-center xs:flex-col lg:flex-row">
+      <div className='xs:max-w-full lg:max-w-sm xs:text-center lg:text-start'>
+        <h1 className='text-white font-bold 2xl:text-5xl xs:text-2xl pb-3 xs:pt-20 xs:pb-5'>Enjoy on your TV</h1>
+        <p className='text-white 2xl:text-2xl xs:text-base xs:max-w-sm'>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
       </div>
-      <img src={imac} alt="laptp" className='2xl:w-90 2xl:h-80 my-36 lg:w-70 lg:h-60 ' />
+      <img src={imac} alt="laptp" className='2xl:w-90 2xl:h-80 lg:my-40 xs:my-20 xs:h-60 lg:h-72' />
     </div>
     <div className='h-3 w-full bg-slate-400 opacity-20'></div>
-    <div className="flex justify-around">
-      <img src={ipad} alt="laptp" className='2xl:w-90 2xl:h-80 my-40 lg:w-70 lg:h-60' />
-      <div className="my-60">
-        <h1 className='text-white font-bold 2xl:text-5xl lg:text-3xl pb-3'>Download your shows<br></br> to watch offline</h1>
-        <p className='text-white 2xl:text-2xl lg:text-xl'>Save your favorites easily and always have <br></br> something to watch.</p>
+    <div className="flex justify-around items-center  xs:flex-col-reverse lg:flex-row">
+      <img src={ipad} alt="laptp" className='2xl:w-90 2xl:h-80 lg:my-40 xs:my-20 xs:h-60 lg:h-72' />
+      <div className='xs:max-w-full lg:max-w-sm xs:text-center lg:text-start'>
+        <h1 className='text-white font-bold 2xl:text-5xl xs:text-2xl pb-3 xs:pt-20 xs:pb-5'>Download your shows to watch offline</h1>
+        <p className='text-white 2xl:text-2xl xs:text-base xs:max-w-sm'>Save your favorites easily and always have something to watch.</p>
       </div>
     </div>
     <div className='h-3 w-full bg-slate-400 opacity-20'></div>
-    <div className="flex justify-around">
-      <div className="my-60">
-        <h1 className='text-white font-bold 2xl:text-5xl lg:text-3xl pb-3'>Watch everywhere</h1>
-        <p className='text-white 2xl:text-2xl lg:text-xl'>Stream unlimited movies and TV shows on your<br></br>phone, tablet, laptop, and TV.</p>
+    <div className="flex justify-around items-center xs:flex-col lg:flex-row">
+      <div className='xs:max-w-full lg:max-w-sm xs:text-center lg:text-start'>
+        <h1 className='text-white font-bold 2xl:text-5xl xs:text-2xl xs:pt-20 xs:pb-5'>Watch everywhere</h1>
+        <p className='text-white 2xl:text-2xl xs:text-base xs:max-w-sm'>Stream unlimited movies and TV shows on your<br></br>phone, tablet, laptop, and TV.</p>
       </div>
-      <img src={laptop} alt="laptp" className='2xl:w-90 2xl:h-80 my-36 lg:w-70 lg:h-60' />
+      <img src={laptop} alt="laptp" className='2xl:w-90 2xl:h-80 lg:my-40 xs:my-20 xs:h-60 lg:h-72' />
     </div>
     <div className='h-3 w-full bg-slate-400 opacity-20'></div>
     <Questions />
     <div className='h-3 w-full bg-slate-400 opacity-20 mt-20'></div>
     <Footer>
       <div className="w-full">
-        <div className="pt-10 pb-10 max-w-max pl-24">
+        <div className="pt-10 pb-10 max-w-max pl-10">
           <div className="flex gap-1">
             <p className='text-gray-400'>Questions? Call</p>
             <a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
           </div>
-          <div className="grid grid-rows-5 grid-cols-3 gap-2 pt-7 gap-x-60">
+          <div className="grid grid-rows-5 lg:grid-cols-3 gap-2 pt-7 gap-x-60 xs:grid-cols-1 ">
             <a href=" " className='text-gray-400 underline'>FAQ</a>
             <a href=" " className='text-gray-400 underline'>Media Center</a>
             <a href=" " className='text-gray-400 underline'>Ways to Watch</a>
@@ -124,7 +131,6 @@ return (
             <a href=" " className='text-gray-400 underline'>Privacy</a>
             <a href=" " className='text-gray-400 underline'>Contact Us</a>
             <a href=" " className='text-gray-400 underline'>Only on Netflix</a>
-
           </div>
           <p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
         </div>
