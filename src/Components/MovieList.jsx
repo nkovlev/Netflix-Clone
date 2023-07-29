@@ -25,8 +25,8 @@ const MovieList = ({ title, myList, addToMyList, startIndex, endIndex }) => {
 
   return (
     <div className="px-4 space-y-8 md:px-12">
-      <div className="">
-        <p className="text-white text-md md:text-xl font-semibold mb-4">{title}</p>
+      <div className="mt-10">
+        <p className="text-white text-xl md:text-3xl font-semibold mb-4">{title}</p>
         <div className="flex space-x-3">
           {visibleMovies.map((movie) => (
             <div key={movie.id} style={{ flex: "0 0 auto" }}>
