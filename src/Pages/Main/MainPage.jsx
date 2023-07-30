@@ -68,7 +68,7 @@ const MainPage = () => {
             >
               <p className="text-white text-sm">Browse</p>
               <BsChevronDown className="text-white transition" />
-              <MobileMenu visible={showMobileMenu} />
+              <MobileMenu visible={showMobileMenu} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
             </div>
             <div className="flex flex-row ml-auto gap-7 items-center">
               <div className="text-gray-200 text-2xl hover:text-gray-300 cursor-pointer transition">

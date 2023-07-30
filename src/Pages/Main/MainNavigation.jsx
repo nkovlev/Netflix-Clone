@@ -3,7 +3,7 @@ import { ClipLoader } from 'react-spinners';
 
 const items = ['Home', 'TV Shows', 'Movies', 'New & Popular', 'My List'];
 
-export const MainNavigation = ({ selectedItem, setSelectedItem, isProcessing }) => {
+export const MainNavigation = ({ selectedItem, setSelectedItem, }) => {
 const [isLoading, setIsLoading] = useState(false);
 
 const handleItemClick = (item) => {

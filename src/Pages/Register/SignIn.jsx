@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ClipLoader } from "react-spinners";
 import Header from '../../Components/Header'
+import Footer from '../../Components/Footer';
 import logo from '../../images/logo.png';
 import back from '../../images/hero.jpg';
 import { Link } from 'react-router-dom';
@@ -44,14 +45,14 @@ const SignIn = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
+    <div className="h-full bg-cover bg-center" style={{ backgroundImage: `url(${back})` }}>
       <Header>
-        <div className="pt-10 pl-10">
+        <div className="pt-10 pl-10 xs:bg-black xs:pl-14 md:bg-transparent">
           <Link to={'/'}><img src={logo} alt="logo" className='h-11' /></Link>
         </div>
       </Header>
       <div className="flex justify-center">
-        <div className="bg-black px-16 py-10 mb-8 self-center lg:w-2/5 lg: max-w-md rounded-md">
+        <div className="bg-black px-16 py-10  xs:mb-0 md:mb-20 self-center lg:w-2/5 lg: max-w-md md:w-3/5 md:max-w-md rounded-md xs:w-screen xs:max-w-full xs:h-full">
           <h2 className='text-white text-3xl font-semibold pb-5'>Sign In</h2>
             <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
               <div class="relative">
@@ -92,6 +93,36 @@ const SignIn = () => {
             </form>
         </div>
       </div>
+      <Footer>
+      <div className="w-full bg-black md:bg-opacity-70 xs:bg-opacity-100">
+        <div className="pt-10 pb-10 max-w-max pl-10">
+          <div className="flex gap-1">
+            <p className='text-gray-400'>Questions? Call</p>
+            <a href="tel:+380685268410" className='text-gray-400 underline'>+380685268410</a>
+          </div>
+          <div className="grid grid-rows-5 lg:grid-cols-3 gap-2 pt-7 gap-x-60 xs:grid-cols-1 ">
+            <a href=" " className='text-gray-400 underline'>FAQ</a>
+            <a href=" " className='text-gray-400 underline'>Media Center</a>
+            <a href=" " className='text-gray-400 underline'>Ways to Watch</a>
+            <a href=" " className='text-gray-400 underline'>Cookie Preferences</a>
+            <a href=" " className='text-gray-400 underline'>Spped Test</a>
+
+            <a href=" " className='text-gray-400 underline'>Help Center</a>
+            <a href=" " className='text-gray-400 underline'>Investor Relations</a>
+            <a href=" " className='text-gray-400 underline'>Terms of Use</a>
+            <a href=" " className='text-gray-400 underline'>Corporate Information</a>
+            <a href=" " className='text-gray-400 underline'>Legal Notices</a>
+
+            <a href=" " className='text-gray-400 underline'>Account</a>
+            <a href=" " className='text-gray-400 underline'>Jobs</a>
+            <a href=" " className='text-gray-400 underline'>Privacy</a>
+            <a href=" " className='text-gray-400 underline'>Contact Us</a>
+            <a href=" " className='text-gray-400 underline'>Only on Netflix</a>
+          </div>
+          <p className='text-gray-400 pt-5'> Netflix Clone by Mykyta Kovlev</p>
+        </div>
+      </div>
+    </Footer>
     </div>
   );
 };

@@ -33,12 +33,12 @@ const Register = () => {
     <>
         <Header>
                 <div className="flex justify-between h-28 items-center">
-                    <Link to={'/'}><img src={logo} alt="logo" className='h-11 pl-10' /></Link>
-                    <Link to={'/signin'} className='font-semibold text-xl 0 pr-10 hover:underline'>Sign In</Link>
+                    <Link to={'/'}><img src={logo} alt="logo" className='lg:h-11 xs:h-6 md:h-8 pl-10 ' /></Link>
+                    <Link to={'/signin'} className='font-semibold lg:text-xl xs:text-md 0 pr-10 hover:underline'>Sign In</Link>
                 </div>
             <div className='h-0.5 w-full bg-slate-400 opacity-20'></div>
         </Header>
-        <div className="max-w-md mx-auto">
+        <div className="md:max-w-md mx-auto xs:max-w-xs">
             <div>
                 <h1 className='text-black font-semibold text-3xl mt-10'>Sign Up to start watch your favorites movies</h1>
                 <p className='text-black mt-5 mb-5 text-xl'>Enter your password and you'll be watching in no time.</p>
