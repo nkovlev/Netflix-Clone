@@ -3,7 +3,7 @@ import { BsPlayFill } from "react-icons/bs";
 import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai';
 import axios from "axios";
 
-const MovieCard = ({ data, myList, addToMyList }) => {
+const MovieCard = ({ data, myList, addToMyList, removeFromMyList }) => {
   const [playVideo, setPlayVideo] = useState(false);
   const videoRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -64,6 +64,10 @@ const MovieCard = ({ data, myList, addToMyList }) => {
     addToMyList(data);
   };
 
+  const handleRemoveFromMyList = (id) => {
+    removeFromMyList(data.id);
+  };
+
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw] sm:h-[20vw] md:h-[16vw] lg:h-[12vw]" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <img src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} alt="Movie" draggable={false} className="cursor-pointer object-cover transition duration shadow-xl rounded-md delay-300 w-full h-[12vw] sm:h-[20vw] md:h-[16vw] lg:h-[12vw]" />
@@ -79,7 +83,10 @@ const MovieCard = ({ data, myList, addToMyList }) => {
               <BsPlayFill size={30} />
             </div>
             {myList.some((item) => item.id === data.id) ? (
-              <AiOutlineCheck className="fill-white w-10 h-10 bg-zinc-700 rounded-full border-2"/>
+              <AiOutlineCheck className="fill-white w-10 h-10 bg-zinc-700 rounded-full border-2" onClick={() => {
+                handleRemoveFromMyList(data.id);
+                setShowCheckMark(false);
+              }} />
             ) : (
               <AiOutlinePlus className="fill-white w-10 h-10 bg-zinc-700 rounded-full border-2" onClick={() => {
                 handleAddToMyList(data);

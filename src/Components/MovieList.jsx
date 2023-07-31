@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 
-const MovieList = ({ title, myList, addToMyList, startIndex, endIndex }) => {
+const MovieList = ({ title, myList, addToMyList, startIndex, endIndex, removeFromMyList }) => {
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async () => {
@@ -27,10 +27,10 @@ const MovieList = ({ title, myList, addToMyList, startIndex, endIndex }) => {
     <div className="px-4 space-y-8 md:px-12">
       <div className="mt-10">
         <p className="text-white text-xl md:text-3xl font-semibold mb-4">{title}</p>
-        <div className="flex space-x-3">
+        <div className="grid grid-cols-4 space-x-3">
           {visibleMovies.map((movie) => (
             <div key={movie.id} style={{ flex: "0 0 auto" }}>
-              <MovieCard data={movie} myList={myList} addToMyList={addToMyList} />
+              <MovieCard data={movie} myList={myList} addToMyList={addToMyList} removeFromMyList={removeFromMyList}/>
             </div>
           ))}
         </div>

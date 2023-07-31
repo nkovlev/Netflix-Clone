@@ -49,6 +49,10 @@ const MainPage = () => {
     setMyList((prevList) => [...prevList, movie]);
   };
 
+  const removeFromMyList = (id) => {
+    setMyList((prevList) => prevList.filter((movie) => movie.id !== id));
+  };
+
   useEffect(() => {
     return () => {
       clearTimeout(accountMenuTimeout);
@@ -103,12 +107,12 @@ const MainPage = () => {
         </div>
       </Header>
       {selectedItem === 'My List' ? (
-        <MyList myList={myList} />
+        <MyList myList={myList} addToMyList={addToMyList} removeFromMyList={removeFromMyList} />
       ) : (
         <>
           <MainBillboard />
-          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} startIndex={0} endIndex={4}/>
-          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} startIndex={5} endIndex={9}/>
+          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} removeFromMyList={removeFromMyList} startIndex={0} endIndex={4}/>
+          <MovieList title="Trending Now" myList={myList} addToMyList={addToMyList} removeFromMyList={removeFromMyList} startIndex={5} endIndex={9}/>
           <Footer>
       <div className="w-full">
         <div className="pt-10 pb-10 max-w-max pl-24">
