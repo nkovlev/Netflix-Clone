@@ -58,13 +58,13 @@ const MainBillboard = () => {
     <div className="relative w-screen h-screen">
       {randomMovie && (
         <>
-          <div className={`w-screen h-full object-cover absolute top-0 left-0 ${showModal ? "hidden" : ""}`}>
+          <div className={`w-screen h-screen absolute top-0 left-0 ${showModal ? "hidden" : ""}`}>
             <video
               ref={mainVideoRef}
               autoPlay
               muted={isMuted}
               loop
-              className={`w-full h-full object-cover absolute top-0 left-0`}
+              className={`w-screen h-screen lg:object-cover xs:object-contain absolute top-0 left-0 `}
               src={randomMovie.videoUrl}
             ></video>
           </div>
@@ -93,7 +93,7 @@ const MainBillboard = () => {
               </div>
             </div>
           </div>
-
+          
           {showModal && (
             <MainModal
               randomMovie={randomMovie}

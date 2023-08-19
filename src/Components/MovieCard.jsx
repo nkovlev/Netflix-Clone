@@ -8,7 +8,6 @@ const MovieCard = ({ data, myList, addToMyList, removeFromMyList }) => {
   const videoRef = useRef(null);
   const timeoutRef = useRef(null);
   const [genres, setGenres] = useState([]);
-  const [showCheckMark, setShowCheckMark] = useState(false);
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -63,7 +62,7 @@ const MovieCard = ({ data, myList, addToMyList, removeFromMyList }) => {
   const handleAddToMyList = (data) => {
     addToMyList(data);
   };
-
+  
   const handleRemoveFromMyList = (id) => {
     removeFromMyList(data.id);
   };
@@ -85,12 +84,10 @@ const MovieCard = ({ data, myList, addToMyList, removeFromMyList }) => {
             {myList.some((item) => item.id === data.id) ? (
               <AiOutlineCheck className="fill-white w-10 h-10 bg-zinc-700 rounded-full border-2" onClick={() => {
                 handleRemoveFromMyList(data.id);
-                setShowCheckMark(false);
               }} />
             ) : (
               <AiOutlinePlus className="fill-white w-10 h-10 bg-zinc-700 rounded-full border-2" onClick={() => {
                 handleAddToMyList(data);
-                setShowCheckMark(true);
               }} />
             )}
           </div>
